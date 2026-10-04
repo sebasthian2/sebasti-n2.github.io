@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 'A' Telemática - Fe y Alegría La Chinita | Creado por Sebasthian Zarate</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ffffff; }
+        ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #991b1b; }
+
+        .red-gradient {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+
+        .red-card {
+            background-color: #ffffff;
+            border: 2px solid #fee2e2;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .red-card:hover {
+            border-color: #dc2626;
+            box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Dynamic 3D Keyring Effect */
+        .keyring-container {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            perspective: 1000px;
+        }
+
+        .keyring-body {
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .metallic-ring {
+            background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 50%, #cbd5e1 100%);
+            box-shadow: inset 0 2px 3px rgba(255,255,255,0.8), 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .color-preset-btn {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .color-preset-btn:hover {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-slate-50 text-slate-800">
+
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b-2 border-brandRed-500 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Fe y Alegría & School Title -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="scrollToSection('hero')">
+                    <!-- Fe y Alegría Heart & 3 Children SVG Emblem -->
+                    <div class="w-12 h-12 rounded-2xl bg-brandRed-600 flex items-center justify-center p-1.5 shadow-lg shadow-brandRed-200">
+                        <svg viewBox="0 0 100 100" class="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Fe y Alegria Heart Silhouette -->
+                            <path d="M50 88 C20 65 5 45 5 28 C5 14 16 5 30 5 C38 5 46 9 50 16 C54 9 62 5 70 5 C84 5 95 14 95 28 C95 45 80 65 50 88 Z" fill="#ffffff"/>
+                            <!-- Inner Red Cutout for 3 Children holding hands -->
+                            <path d="M50 82 C25 61 12 43 12 28 C12 18 20 11 30 11 C37 11 44 15 48 22 L50 25 L52 22 C56 15 63 11 70 11 C80 11 88 18 88 28 C88 43 75 61 50 82 Z" fill="#dc2626"/>
+                            <!-- Center Child -->
+                            <circle cx="50" cy="28" r="4.5" fill="#ffffff"/>
+                            <path d="M44 48 L44 38 C44 35 56 35 56 38 L56 48 Z" fill="#ffffff"/>
+                            <!-- Left Child -->
+                            <circle cx="35" cy="32" r="4" fill="#ffffff"/>
+                            <path d="M30 50 L30 42 C30 39 40 39 40 42 L40 50 Z" fill="#ffffff"/>
+                            <!-- Right Child -->
+                            <circle cx="65" cy="32" r="4" fill="#ffffff"/>
+                            <path d="M60 50 L60 42 C60 39 70 39 70 42 L70 50 Z" fill="#ffffff"/>
+                            <!-- Holding Hands Link Line -->
+                            <path d="M28 43 Q50 49 72 43" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <div>
+                        <h1 class="text-base sm:text-lg font-black tracking-tight text-slate-900 uppercase leading-tight flex items-center gap-1.5">
+                            5 'A' Telemática
+                            <span class="hidden sm:inline-block px-2 py-0.5 bg-brandRed-100 text-brandRed-700 text-[10px] font-extrabold rounded-md border border-brandRed-200">Fe y Alegría</span>
+                        </h1>
+                        <p class="text-xs font-bold text-brandRed-600">
+                            Fe y Alegría La Chinita
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Nav Links -->
+                <nav class="hidden md:flex items-center gap-6 text-xs font-extrabold uppercase tracking-wider">
+                    <button onclick="scrollToSection('creator')" class="text-slate-600 hover:text-brandRed-600 transition flex items-center gap-2">
+                        <i class="fa-solid fa-palette text-brandRed-500"></i> Personalizar Llavero
+                    </button>
+                    <button onclick="scrollToSection('database')" class="text-slate-600 hover:text-brandRed-600 transition flex items-center gap-2">
+                        <i class="fa-solid fa-database text-brandRed-500"></i> Llaveros Registrados (<span id="navCount">0</span>)
+                    </button>
+                </nav>
+
+                <!-- User Session Status -->
+                <div class="flex items-center gap-3">
+                    <div class="hidden sm:flex flex-col text-right">
+                        <span id="userDisplay" class="text-xs font-black text-slate-900 truncate max-w-[130px]">Invitado</span>
+                        <span id="userRoleBadge" class="text-[10px] text-brandRed-600 font-bold uppercase">Sin iniciar sesión</span>
+                    </div>
+
+                    <button id="loginOpenBtn" onclick="openAuthModal('login')" class="px-4 py-2 bg-brandRed-600 text-white font-black text-xs uppercase rounded-xl hover:bg-brandRed-700 transition shadow-md shadow-brandRed-200 flex items-center gap-2">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <span>Entrar</span>
+                    </button>
+
+                    <button id="logoutBtn" onclick="logoutUser()" class="hidden px-3 py-2 bg-slate-100 text-slate-700 hover:bg-brandRed-50 hover:text-brandRed-600 border border-slate-200 font-extrabold text-xs rounded-xl transition">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="relative py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-white border-b border-brandRed-100">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-8 space-y-4">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-extrabold bg-brandRed-100 text-brandRed-700 border border-brandRed-200">
+                        <i class="fa-solid fa-heart mr-1.5 text-brandRed-600"></i> Fe y Alegría La Chinita
+                    </span>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-black bg-slate-900 text-white shadow-sm">
+                        <i class="fa-solid fa-code mr-1.5 text-brandRed-400"></i> Creado por Sebasthian Zarate
+                    </span>
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight leading-none">
+                    Gestor y Creador de Llaveros QR <br>
+                    <span class="text-brandRed-600">5 'A' Telemática</span>
+                </h2>
+                <p class="text-slate-600 text-sm leading-relaxed max-w-2xl font-medium">
+                    Diseña tus llaveros personalizados con códigos QR simples en negro, elige cualquier color llamativo para el llavero y guárdalos permanentemente en la base de datos protegida por tu usuario.
+                </p>
+
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <button onclick="scrollToSection('creator')" class="px-6 py-3.5 bg-brandRed-600 text-white font-black text-xs uppercase tracking-wider rounded-xl hover:bg-brandRed-700 transition shadow-lg shadow-brandRed-200 flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Diseñar mi Llavero
+                    </button>
+                    <button onclick="scrollToSection('database')" class="px-6 py-3.5 bg-slate-100 text-slate-800 font-extrabold text-xs uppercase tracking-wider rounded-xl hover:bg-slate-200 transition border border-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-database"></i> Ver Base de Datos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Author & Fe y Alegría Card -->
+            <div class="lg:col-span-4 bg-brandRed-50 p-6 rounded-3xl border-2 border-brandRed-200 shadow-xl relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-brandRed-200/50 rounded-full blur-2xl"></div>
+                <div class="flex items-center justify-between border-b border-brandRed-200 pb-3 mb-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-school text-brandRed-600 text-base"></i>
+                        <span class="text-xs font-black uppercase text-brandRed-800">Proyecto Escolar</span>
+                    </div>
+                    <span class="text-[10px] bg-brandRed-600 text-white px-2.5 py-0.5 font-bold uppercase rounded-md">5to Año</span>
+                </div>
+                <div class="space-y-3 relative z-10 text-xs font-semibold text-slate-700">
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500"><i class="fa-solid fa-user-gear text-brandRed-600 mr-1.5"></i>Desarrollador:</span>
+                        <strong class="font-black text-slate-900">Sebasthian Zarate</strong>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500"><i class="fa-solid fa-graduation-cap text-brandRed-600 mr-1.5"></i>Especialidad:</span>
+                        <span class="font-bold text-slate-900">Telemática</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-slate-500"><i class="fa-solid fa-qrcode text-brandRed-600 mr-1.5"></i>Código QR:</span>
+                        <span class="font-bold text-slate-900">Negro Simple (Estándar)</span>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-brandRed-200">
+                        <span class="text-slate-500"><i class="fa-solid fa-palette text-brandRed-600 mr-1.5"></i>Personalización:</span>
+                        <span class="font-bold text-brandRed-700">Color Libre de Carcasa</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="creator" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="mb-8 border-b-2 border-brandRed-100 pb-4 flex flex-col sm:flex-row justify-between sm:items-end gap-2">
+            <div>
+                <span class="text-xs font-extrabold text-brandRed-600 uppercase tracking-widest">Personalizador en Vivo</span>
+                <h3 class="text-2xl font-black text-slate-900 uppercase mt-1">Diseñar y Registrar Llavero</h3>
+            </div>
+            <span class="text-xs font-bold text-slate-500">Base de datos local guardada al instante</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Keyring Form -->
+            <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border-2 border-slate-100 shadow-xl">
+                <form id="tagForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <input type="hidden" id="tagId" value="">
+
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1">
+                            Nombre de la Pertenencia / Objeto *
+                        </label>
+                        <input type="text" id="itemName" required placeholder="Ej. Mochila Escolar, Llaves de casa, Laptop" 
+                            oninput="updatePreview()"
+                            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brandRed-500 focus:bg-white transition">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1">
+                                Categoría
+                            </label>
+                            <select id="itemCategory" onchange="updatePreview()" 
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brandRed-500 focus:bg-white transition">
+                                <option value="Mochila / Bolso">🎒 Mochila / Bolso</option>
+                                <option value="Llaves">🔑 Llaves</option>
+                                <option value="Cuaderno / Carpeta">📚 Cuaderno / Carpeta</option>
+                                <option value="Dispositivo / Laptop">💻 Dispositivo / Laptop</option>
+                                <option value="Termo / Cartuchera">🥤 Termo / Cartuchera</option>
+                                <option value="Otro Objeto">📦 Otro Objeto</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1">
+                                Estudiante / Propietario *
+                            </label>
+                            <input type="text" id="ownerName" required placeholder="Ej. Carlos Mendoza" 
+                                oninput="updatePreview()"
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brandRed-500 focus:bg-white transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1">
+                                Teléfono / WhatsApp *
+                            </label>
+                            <input type="tel" id="ownerPhone" required placeholder="Ej. +584121234567" 
+                                oninput="updatePreview()"
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brandRed-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1">
+                                Sección / Aula
+                            </label>
+                            <input type="text" id="ownerClass" placeholder="5to A Telemática" 
+                                oninput="updatePreview()"
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brandRed-500 focus:bg-white transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-1">
+                            Mensaje en caso de extravío
+                        </label>
+                        <textarea id="ownerMessage" rows="2" 
+                            placeholder="Ej. Por favor entregar en el laboratorio de Telemática o comunicarse por WhatsApp." 
+                            oninput="updatePreview()"
+                            class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-brandRed-500 focus:bg-white transition"></textarea>
+                    </div>
+
+                    <!-- Custom Color Picker Section -->
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="text-xs font-black uppercase tracking-wider text-slate-800 flex items-center gap-2">
+                                <i class="fa-solid fa-palette text-brandRed-600"></i> Color de Carcasa del Llavero
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <input type="color" id="keyringColorPicker" value="#dc2626" oninput="setCustomColor(this.value)" 
+                                    class="w-9 h-9 rounded-xl border-2 border-slate-300 cursor-pointer p-0 bg-transparent">
+                                <span id="colorHexCode" class="text-xs font-mono font-bold text-slate-600 uppercase">#DC2626</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase text-slate-400 block mb-2">Colores Llamativos Rápidos:</span>
+                            <div class="flex flex-wrap gap-2.5">
+                                <button type="button" onclick="setCustomColor('#dc2626')" class="color-preset-btn w-7 h-7 rounded-full bg-red-600 shadow-md border-2 border-white"></button>
+                                <button type="button" onclick="setCustomColor('#2563eb')" class="color-preset-btn w-7 h-7 rounded-full bg-blue-600 shadow-md border-2 border-white"></button>
+                                <button type="button" onclick="setCustomColor('#059669')" class="color-preset-btn w-7 h-7 rounded-full bg-emerald-600 shadow-md border-2 border-white"></button>
+                                <button type="button" onclick="setCustomColor('#d97706')" class="color-preset-btn w-7 h-7 rounded-full bg-amber-600 shadow-md border-2 border-white"></button>
+                                <button type="button" onclick="setCustomColor('#9333ea')" class="color-preset-btn w-7 h-7 rounded-full bg-purple-600 shadow-md border-2 border-white"></button>
+                                <button type="button" onclick="setCustomColor('#db2777')" class="color-preset-btn w-7 h-7 rounded-full bg-pink-600 shadow-md border-2 border-white"></button>
+                                <button type="button" onclick="setCustomColor('#0891b2')" class="color-preset-btn w-7 h-7 rounded-full bg-cyan-600 shadow-md border-2 border-white"></button>
+                                <button type="button" onclick="setCustomColor('#0f172a')" class="color-preset-btn w-7 h-7 rounded-full bg-slate-900 shadow-md border-2 border-white"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex gap-3">
+                        <button type="submit" id="saveBtn" class="flex-1 py-3.5 bg-brandRed-600 text-white font-black text-xs uppercase tracking-wider rounded-xl hover:bg-brandRed-700 transition flex items-center justify-center gap-2 shadow-lg shadow-brandRed-200">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span id="saveBtnText">Guardar en Base de Datos</span>
+                        </button>
+                        <button type="button" onclick="resetForm()" class="px-5 py-3.5 bg-slate-100 border border-slate-300 text-slate-700 font-extrabold text-xs uppercase rounded-xl hover:bg-slate-200 transition">
+                            Limpiar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col items-center">
+                <span class="text-xs font-extrabold text-slate-500 uppercase tracking-widest mb-4">Vista Previa 3D Llamativa</span>
+                
+                <div class="keyring-container py-6">
+                    <div id="keyringMockup" class="keyring-body w-72 h-[430px] rounded-[36px] p-6 flex flex-col items-center justify-between relative text-white" style="background-color: #dc2626; border: 4px solid rgba(255,255,255,0.4);">
+                        
+                        <!-- Metallic Ring Element -->
+                        <div class="w-14 h-14 rounded-full -mt-12 metallic-ring flex items-center justify-center relative">
+                            <div class="w-8 h-8 rounded-full border-2 border-slate-400 bg-slate-200/40"></div>
+                        </div>
+
+                        <!-- Keyring Header -->
+                        <div class="text-center w-full pt-1">
+                            <span class="text-[9px] font-black uppercase tracking-widest bg-white/20 backdrop-blur-md text-white px-3 py-0.5 rounded-full inline-block mb-1" id="previewCategory">🎒 MOCHILA / BOLSO</span>
+                            <h4 class="font-black text-base truncate max-w-[220px] text-white drop-shadow" id="previewItemName">Mochila Escolar</h4>
+                            <span class="text-[10px] text-white/90 block font-semibold" id="previewOwner">Propietario: Carlos Mendoza</span>
+                        </div>
+
+                        <!-- Black Simple QR Code Box -->
+                        <div class="bg-white p-2.5 rounded-2xl shadow-xl flex flex-col items-center justify-center border-2 border-white/60">
+                            <img id="previewQRImage" src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&color=000000&data=5A_Telematica_La_Chinita" alt="Código QR Negro Simple" class="w-32 h-32 rounded-lg">
+                            <span class="text-[8px] font-black uppercase tracking-widest text-slate-900 mt-1">QR Negro Estándar</span>
+                        </div>
+
+                        <!-- Keyring Footer -->
+                        <div class="text-center w-full">
+                            <div class="bg-white/15 backdrop-blur-md py-2 px-3 rounded-xl border border-white/20 text-[10px] text-white mb-2 truncate italic font-medium" id="previewMessage">
+                                "Escanéame para contactar al propietario"
+                            </div>
+                            <div class="flex items-center justify-between text-[9px] font-black uppercase text-white/90 pt-1 border-t border-white/20">
+                                <span>5 'A' TELEMÁTICA</span>
+                                <span>LA CHINITA</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="database" class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+                <div>
+                    <span class="text-xs font-extrabold text-brandRed-600 uppercase tracking-widest">Base de Datos Guardada</span>
+                    <h3 class="text-2xl font-black text-slate-900 uppercase mt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-boxes-stacked text-brandRed-600"></i>
+                        Llaveros Registrados en la Sección
+                    </h3>
+                </div>
+
+                <!-- Search Input -->
+                <div class="w-full sm:w-80 relative">
+                    <input type="text" id="dbSearch" oninput="renderSavedTags()" 
+                        placeholder="Buscar por objeto o estudiante..." 
+                        class="w-full bg-slate-50 text-xs text-slate-900 border border-slate-300 rounded-xl py-3 pl-10 pr-4 focus:outline-none focus:border-brandRed-500 transition">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400 text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Tags Grid -->
+            <div id="savedTagsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyDbMessage" class="hidden text-center py-16 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
+                <i class="fa-solid fa-folder-open text-4xl text-slate-300 mb-3"></i>
+                <h4 class="text-lg font-black text-slate-800 uppercase">No hay llaveros en la base de datos</h4>
+                <p class="text-slate-500 text-xs mt-1 font-medium">Registra un nuevo llavero en el formulario de arriba.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white border-t-4 border-brandRed-600 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                
+                <div class="text-center md:text-left flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brandRed-600 flex items-center justify-center p-1 shadow-md">
+                        <svg viewBox="0 0 100 100" class="w-full h-full fill-white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 88 C20 65 5 45 5 28 C5 14 16 5 30 5 C38 5 46 9 50 16 C54 9 62 5 70 5 C84 5 95 14 95 28 C95 45 80 65 50 88 Z" fill="#ffffff"/>
+                            <path d="M50 82 C25 61 12 43 12 28 C12 18 20 11 30 11 C37 11 44 15 48 22 L50 25 L52 22 C56 15 63 11 70 11 C80 11 88 18 88 28 C88 43 75 61 50 82 Z" fill="#dc2626"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-black uppercase tracking-wider">5 'A' Telemática - Fe y Alegría La Chinita</h4>
+                        <p class="text-xs text-slate-400 font-medium">
+                            Sistema Inteligente de Recuperación de Pertenencias mediante Códigos QR
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Prominent Author Badge -->
+                <div class="bg-slate-800 border border-slate-700 px-5 py-3 rounded-2xl flex items-center gap-3 shadow-lg">
+                    <div class="w-10 h-10 rounded-xl red-gradient flex items-center justify-center text-white font-black text-base shadow-md">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-slate-400 uppercase font-extrabold tracking-widest block">Proyecto y Desarrollo</span>
+                        <strong class="text-sm font-black text-white uppercase tracking-wide">Creado por Sebasthian Zarate</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800 text-center text-xs text-slate-500 font-medium flex flex-col sm:flex-row justify-between items-center gap-2">
+                <span>© 5 'A' Telemática - Fe y Alegría La Chinita</span>
+                <span>Base de Datos Persistente (LocalStorage) con Permisos por Dueño</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Authentication Modal -->
+    <div id="authModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div onclick="closeAuthModal()" class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+        <div class="relative bg-white border-2 border-brandRed-500 rounded-3xl max-w-md w-full p-6 sm:p-8 z-10 text-slate-900 shadow-2xl">
+            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-2xl red-gradient text-white flex items-center justify-center text-xl font-black mx-auto mb-2 shadow-md">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h3 class="text-xl font-black uppercase tracking-tight text-slate-900" id="authTitle">Iniciar Sesión</h3>
+                <p class="text-xs text-slate-500 font-medium mt-1">Ingresa para proteger tus llaveros guardados</p>
+            </div>
+
+            <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                <div id="fullNameGroup" class="hidden">
+                    <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Nombre Completo *</label>
+                    <input type="text" id="authFullName" placeholder="Ej. Sebasthian Zarate"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-brandRed-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Usuario / Estudiante *</label>
+                    <input type="text" id="authUsername" required placeholder="Ej. sebasthian"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-brandRed-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Contraseña *</label>
+                    <input type="password" id="authPassword" required placeholder="••••••••"
+                        class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-brandRed-500">
+                </div>
+
+                <div class="pt-2 space-y-2">
+                    <button type="submit" id="authSubmitBtn" class="w-full py-3 bg-brandRed-600 text-white font-black text-xs uppercase rounded-xl hover:bg-brandRed-700 transition shadow-md shadow-brandRed-200">
+                        Entrar a la Plataforma
+                    </button>
+                    
+                    <button type="button" onclick="toggleAuthMode()" id="authToggleBtn" class="w-full py-2.5 bg-slate-100 text-slate-700 font-extrabold text-xs uppercase rounded-xl hover:bg-slate-200 transition">
+                        ¿No tienes cuenta? Regístrate aquí
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Public Scan Simulation Modal -->
+    <div id="publicModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div onclick="closePublicModal()" class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+        <div class="relative bg-white border-2 border-brandRed-500 rounded-3xl max-w-md w-full p-6 z-10 text-slate-900 shadow-2xl">
+            <button onclick="closePublicModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="text-center mb-4">
+                <span class="px-3 py-1 bg-brandRed-100 text-brandRed-700 text-[10px] font-black uppercase rounded-full border border-brandRed-200">
+                    <i class="fa-solid fa-qrcode mr-1"></i> Escaneo de Llavero QR
+                </span>
+                <h3 class="text-xl font-black uppercase mt-3 text-slate-900" id="publicItemName">Objeto Encontrado</h3>
+                <p class="text-xs font-bold text-brandRed-600" id="publicCategory">Categoría</p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3 mb-4 text-left">
+                <div>
+                    <span class="text-[10px] font-extrabold text-slate-400 uppercase block">Propietario Registrado</span>
+                    <strong class="text-slate-900 text-sm font-black" id="publicOwner">Nombre</strong>
+                    <span class="text-xs text-slate-500 block font-medium" id="publicClass">Sección</span>
+                </div>
+                <div>
+                    <span class="text-[10px] font-extrabold text-slate-400 uppercase block">Mensaje de Devolución</span>
+                    <p class="text-slate-700 text-xs italic bg-white p-3 rounded-xl border border-slate-200 mt-1 font-medium" id="publicMessage">
+                        "Sin mensaje especificado"
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center justify-center mb-4 bg-slate-100 p-3 rounded-2xl border border-slate-200">
+                <img id="publicQRImg" src="" alt="Código QR Publico" class="w-36 h-36 rounded-lg shadow-sm">
+                <span class="text-[9px] font-black uppercase text-slate-500 mt-1">Código QR Negro Estándar</span>
+            </div>
+
+            <div>
+                <a id="publicWhatsappBtn" target="_blank" href="#" class="w-full py-3.5 rounded-xl bg-emerald-600 text-white font-black text-xs uppercase hover:bg-emerald-700 transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-100">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Contactar Propietario por WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        // LocalStorage Keys
+        const KEY_USERS = 'db_users_5a_v2';
+        const KEY_TAGS = 'db_tags_5a_v2';
+        const KEY_CURRENT_USER = 'current_user_5a_v2';
+
+        // Memory Fallback Storage
+        let memoryStorage = {
+            users: [],
+            tags: [],
+            currentUser: null
+        };
+
+        // App State
+        let currentUser = null;
+        let authMode = 'login'; 
+        let selectedCustomColor = '#dc2626';
+
+        window.onload = function() {
+            initDatabase();
+            initSession();
+            updatePreview();
+            renderSavedTags();
+        };
+
+        // ROBUST LOCAL DATABASE ENGINE (With Try/Catch & Fallback)
+        function initDatabase() {
+            try {
+                if (!localStorage.getItem(KEY_USERS)) {
+                    const initialUsers = [{
+                        username: 'sebasthian',
+                        password: '123',
+                        fullName: 'Sebasthian Zarate'
+                    }];
+                    localStorage.setItem(KEY_USERS, JSON.stringify(initialUsers));
+                }
+
+                if (!localStorage.getItem(KEY_TAGS)) {
+                    const initialTags = [{
+                        id: 'tag_demo_1',
+                        itemName: 'Mochila Escolar',
+                        itemCategory: 'Mochila / Bolso',
+                        ownerName: 'Sebasthian Zarate',
+                        ownerPhone: '+584121234567',
+                        ownerClass: '5to A Telemática',
+                        ownerMessage: 'Entregar en el aula de Telemática de Fe y Alegría La Chinita.',
+                        customColor: '#dc2626',
+                        ownerUsername: 'sebasthian',
+                        createdAt: new Date().toLocaleDateString('es-ES')
+                    }];
+                    localStorage.setItem(KEY_TAGS, JSON.stringify(initialTags));
+                }
+            } catch (e) {
+                console.warn("LocalStorage error or restricted. Using memory fallback mode.", e);
+            }
+        }
+
+        function getStoredTags() {
+            try {
+                const data = localStorage.getItem(KEY_TAGS);
+                return data ? JSON.parse(data) : memoryStorage.tags;
+            } catch (e) {
+                console.error("Error reading tags database:", e);
+                return memoryStorage.tags;
+            }
+        }
+
+        function saveTags(tagsArray) {
+            try {
+                memoryStorage.tags = tagsArray;
+                localStorage.setItem(KEY_TAGS, JSON.stringify(tagsArray));
+                return true;
+            } catch (e) {
+                console.error("Error saving tags database:", e);
+                return true;
+            }
+        }
+
+        function getStoredUsers() {
+            try {
+                const data = localStorage.getItem(KEY_USERS);
+                return data ? JSON.parse(data) : memoryStorage.users;
+            } catch (e) {
+                console.error("Error reading users database:", e);
+                return memoryStorage.users;
+            }
+        }
+
+        function saveUsers(usersArray) {
+            try {
+                memoryStorage.users = usersArray;
+                localStorage.setItem(KEY_USERS, JSON.stringify(usersArray));
+                return true;
+            } catch (e) {
+                console.error("Error saving users database:", e);
+                return true;
+            }
+        }
+
+        // SESSION MANAGEMENT
+        function initSession() {
+            try {
+                const data = localStorage.getItem(KEY_CURRENT_USER);
+                if (data) {
+                    currentUser = JSON.parse(data);
+                }
+            } catch (e) {
+                currentUser = memoryStorage.currentUser;
+            }
+            updateUserUI();
+        }
+
+        function updateUserUI() {
+            const userDisplay = document.getElementById('userDisplay');
+            const userRoleBadge = document.getElementById('userRoleBadge');
+            const loginOpenBtn = document.getElementById('loginOpenBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            if (currentUser) {
+                userDisplay.innerText = currentUser.fullName || currentUser.username;
+                userRoleBadge.innerText = `@${currentUser.username}`;
+                loginOpenBtn.classList.add('hidden');
+                logoutBtn.classList.remove('hidden');
+            } else {
+                userDisplay.innerText = 'Invitado';
+                userRoleBadge.innerText = 'Sin iniciar sesión';
+                loginOpenBtn.classList.remove('hidden');
+                logoutBtn.classList.add('hidden');
+            }
+
+            renderSavedTags();
+        }
+
+        // CUSTOM COLOR & PREVIEW LOGIC
+        function setCustomColor(colorHex) {
+            selectedCustomColor = colorHex;
+            document.getElementById('keyringColorPicker').value = colorHex;
+            document.getElementById('colorHexCode').innerText = colorHex.toUpperCase();
+
+            const keyringMockup = document.getElementById('keyringMockup');
+            keyringMockup.style.backgroundColor = colorHex;
+        }
+
+        function updatePreview() {
+            const itemName = document.getElementById('itemName').value || 'Mochila Escolar';
+            const category = document.getElementById('itemCategory').value || 'Mochila / Bolso';
+            const ownerName = document.getElementById('ownerName').value || 'Carlos Mendoza';
+            const phone = document.getElementById('ownerPhone').value || '+584121234567';
+            const ownerClass = document.getElementById('ownerClass').value || '5to A Telemática';
+            const message = document.getElementById('ownerMessage').value || 'Escanéame para contactar al propietario';
+
+            document.getElementById('previewItemName').innerText = itemName;
+            document.getElementById('previewCategory').innerText = category.toUpperCase();
+            document.getElementById('previewOwner').innerText = `Propietario: ${ownerName} (${ownerClass})`;
+            document.getElementById('previewMessage').innerText = `"${message}"`;
+
+            const cleanPhone = phone.replace(/[^0-9]/g, '');
+            const waMessage = encodeURIComponent(`¡Hola ${ownerName}! Encontré tu pertenencia "${itemName}" de 5 'A' Telemática Fe y Alegría La Chinita.`);
+            const qrTargetUrl = `https://wa.me/${cleanPhone}?text=${waMessage}`;
+
+            // BLACK SIMPLE QR CODE (color=000000)
+            const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=000000&data=${encodeURIComponent(qrTargetUrl)}`;
+            document.getElementById('previewQRImage').src = qrImageUrl;
+        }
+
+        // TAG FORM SUBMISSION (CREATE & EDIT)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            if (!currentUser) {
+                showToast('Debes iniciar sesión para guardar en la base de datos', 'error');
+                openAuthModal('login');
+                return;
+            }
+
+            const id = document.getElementById('tagId').value;
+            const tagData = {
+                id: id || 'tag_' + Date.now(),
+                itemName: document.getElementById('itemName').value,
+                itemCategory: document.getElementById('itemCategory').value,
+                ownerName: document.getElementById('ownerName').value,
+                ownerPhone: document.getElementById('ownerPhone').value,
+                ownerClass: document.getElementById('ownerClass').value || '5to A Telemática',
+                ownerMessage: document.getElementById('ownerMessage').value,
+                customColor: selectedCustomColor,
+                ownerUsername: currentUser.username,
+                createdAt: new Date().toLocaleDateString('es-ES')
+            };
+
+            let tags = getStoredTags();
+
+            if (id) {
+                // Update existing tag
+                const index = tags.findIndex(t => t.id === id);
+                if (index !== -1) {
+                    if (tags[index].ownerUsername !== currentUser.username) {
+                        showToast('⚠️ No tienes permiso para modificar este llavero', 'error');
+                        return;
+                    }
+                    tags[index] = tagData;
+                    showToast('¡Llavero actualizado en la base de datos!', 'success');
+                }
+            } else {
+                // Insert new tag
+                tags.unshift(tagData);
+                showToast('¡Llavero guardado exitosamente en la base de datos local!', 'success');
+            }
+
+            saveTags(tags);
+            resetForm();
+            renderSavedTags();
+        }
+
+        // RENDER TAGS DATABASE
+        function renderSavedTags() {
+            const grid = document.getElementById('savedTagsGrid');
+            const emptyMsg = document.getElementById('emptyDbMessage');
+            const searchVal = document.getElementById('dbSearch').value.toLowerCase();
+            const tags = getStoredTags();
+
+            document.getElementById('navCount').innerText = tags.length;
+
+            const filtered = tags.filter(t => 
+                (t.itemName && t.itemName.toLowerCase().includes(searchVal)) || 
+                (t.ownerName && t.ownerName.toLowerCase().includes(searchVal)) ||
+                (t.itemCategory && t.itemCategory.toLowerCase().includes(searchVal))
+            );
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyMsg.classList.remove('hidden');
+                return;
+            }
+
+            emptyMsg.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(tag => {
+                const isOwner = currentUser && (currentUser.username === tag.ownerUsername);
+                const tagColor = tag.customColor || '#dc2626';
+
+                return `
+                    <div class="red-card rounded-3xl p-6 flex flex-col justify-between relative bg-white shadow-sm" style="border-left: 8px solid ${tagColor}">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-200">
+                                    ${tag.itemCategory || 'Objeto'}
+                                </span>
+                                ${isOwner 
+                                    ? '<span class="text-[9px] bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold px-2.5 py-0.5 rounded-full"><i class="fa-solid fa-user-check"></i> Tu Llavero</span>' 
+                                    : `<span class="text-[9px] bg-slate-100 text-slate-500 font-bold px-2.5 py-0.5 rounded-full" title="Propietario: @${tag.ownerUsername}"><i class="fa-solid fa-lock"></i> Por @${tag.ownerUsername}</span>`
+                                }
+                            </div>
+
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-3.5 h-3.5 rounded-full shadow-inner border border-black/20" style="background-color: ${tagColor}"></span>
+                                <h4 class="text-lg font-black uppercase text-slate-900">${tag.itemName}</h4>
+                            </div>
+
+                            <p class="text-xs font-semibold text-slate-500 mb-3"><i class="fa-solid fa-user text-brandRed-500 mr-1"></i> ${tag.ownerName} (${tag.ownerClass || '5to A'})</p>
+
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-600 italic mb-4 truncate font-medium">
+                                "${tag.ownerMessage || 'Sin mensaje de contacto especificado'}"
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                            <button onclick="openPublicModal('${tag.id}')" class="flex-1 py-2.5 bg-brandRed-600 text-white font-black text-xs uppercase rounded-xl hover:bg-brandRed-700 transition flex items-center justify-center gap-1.5 shadow-md shadow-brandRed-100">
+                                <i class="fa-solid fa-qrcode"></i> Escanear
+                            </button>
+
+                            ${isOwner ? `
+                                <button onclick="editTag('${tag.id}')" title="Editar tu llavero" class="px-3 py-2.5 bg-slate-100 border border-slate-200 text-slate-700 font-extrabold text-xs rounded-xl hover:bg-brandRed-50 hover:text-brandRed-600 transition">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <button onclick="deleteTag('${tag.id}')" title="Eliminar llavero" class="px-3 py-2.5 bg-slate-100 border border-slate-200 text-slate-700 font-extrabold text-xs rounded-xl hover:bg-brandRed-600 hover:text-white transition">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            ` : `
+                                <button disabled title="Protegido: Solo el dueño (@${tag.ownerUsername}) puede modificar este llavero" class="px-3 py-2.5 bg-slate-100 text-slate-400 border border-slate-200 text-xs rounded-xl cursor-not-allowed">
+                                    <i class="fa-solid fa-lock"></i>
+                                </button>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function editTag(id) {
+            const tags = getStoredTags();
+            const tag = tags.find(t => t.id === id);
+            if (!tag) return;
+
+            if (!currentUser || currentUser.username !== tag.ownerUsername) {
+                showToast('Acceso restringido: Solo el dueño puede editar', 'error');
+                return;
+            }
+
+            document.getElementById('tagId').value = tag.id;
+            document.getElementById('itemName').value = tag.itemName;
+            document.getElementById('itemCategory').value = tag.itemCategory;
+            document.getElementById('ownerName').value = tag.ownerName;
+            document.getElementById('ownerPhone').value = tag.ownerPhone;
+            document.getElementById('ownerClass').value = tag.ownerClass || '5to A Telemática';
+            document.getElementById('ownerMessage').value = tag.ownerMessage;
+            
+            setCustomColor(tag.customColor || '#dc2626');
+            updatePreview();
+
+            document.getElementById('saveBtnText').innerText = 'Actualizar en Base de Datos';
+            scrollToSection('creator');
+            showToast('Llavero cargado en el formulario para editar', 'info');
+        }
+
+        function deleteTag(id) {
+            const tags = getStoredTags();
+            const tag = tags.find(t => t.id === id);
+            if (!tag) return;
+
+            if (!currentUser || currentUser.username !== tag.ownerUsername) {
+                showToast('Acceso denegado: Solo el dueño puede borrar este registro', 'error');
+                return;
+            }
+
+            const updatedTags = tags.filter(t => t.id !== id);
+            saveTags(updatedTags);
+            showToast('Llavero eliminado de la base de datos', 'info');
+            renderSavedTags();
+        }
+
+        function resetForm() {
+            document.getElementById('tagForm').reset();
+            document.getElementById('tagId').value = '';
+            document.getElementById('saveBtnText').innerText = 'Guardar en Base de Datos';
+            setCustomColor('#dc2626');
+            updatePreview();
+        }
+
+        function openPublicModal(id) {
+            const tags = getStoredTags();
+            const tag = tags.find(t => t.id === id);
+            if (!tag) return;
+
+            document.getElementById('publicItemName').innerText = tag.itemName;
+            document.getElementById('publicCategory').innerText = tag.itemCategory;
+            document.getElementById('publicOwner').innerText = tag.ownerName;
+            document.getElementById('publicClass').innerText = `Sección: ${tag.ownerClass || '5to A Telemática'}`;
+            document.getElementById('publicMessage').innerText = `"${tag.ownerMessage || 'Por favor entregar en la coordinación de Telemática.'}"`;
+
+            const cleanPhone = (tag.ownerPhone || '').replace(/[^0-9]/g, '');
+            const waText = encodeURIComponent(`¡Hola ${tag.ownerName}! Encontré tu pertenencia "${tag.itemName}" de 5 'A' Telemática Fe y Alegría La Chinita.`);
+            const waUrl = `https://wa.me/${cleanPhone}?text=${waText}`;
+
+            // Black QR Code for modal
+            document.getElementById('publicQRImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=000000&data=${encodeURIComponent(waUrl)}`;
+            document.getElementById('publicWhatsappBtn').href = waUrl;
+            document.getElementById('publicModal').classList.remove('hidden');
+        }
+
+        function closePublicModal() {
+            document.getElementById('publicModal').classList.add('hidden');
+        }
+
+        // AUTHENTICATION SYSTEM LOGIC
+        function openAuthModal(mode = 'login') {
+            authMode = mode;
+            updateAuthModalUI();
+            document.getElementById('authModal').classList.remove('hidden');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function toggleAuthMode() {
+            authMode = authMode === 'login' ? 'register' : 'login';
+            updateAuthModalUI();
+        }
+
+        function updateAuthModalUI() {
+            const authTitle = document.getElementById('authTitle');
+            const authSubmitBtn = document.getElementById('authSubmitBtn');
+            const authToggleBtn = document.getElementById('authToggleBtn');
+            const fullNameGroup = document.getElementById('fullNameGroup');
+
+            if (authMode === 'register') {
+                authTitle.innerText = 'Crear Cuenta';
+                authSubmitBtn.innerText = 'Registrar Estudiante';
+                authToggleBtn.innerText = '¿Ya tienes cuenta? Inicia sesión';
+                fullNameGroup.classList.remove('hidden');
+            } else {
+                authTitle.innerText = 'Iniciar Sesión';
+                authSubmitBtn.innerText = 'Entrar a la Plataforma';
+                authToggleBtn.innerText = '¿No tienes cuenta? Regístrate aquí';
+                fullNameGroup.classList.add('hidden');
+            }
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const username = document.getElementById('authUsername').value.trim().toLowerCase();
+            const pass = document.getElementById('authPassword').value;
+            const fullName = document.getElementById('authFullName').value.trim();
+
+            const users = getStoredUsers();
+
+            if (authMode === 'register') {
+                if (users.find(u => u.username === username)) {
+                    showToast('El usuario ya está registrado en la base de datos', 'error');
+                    return;
+                }
+
+                const newUser = { username, password: pass, fullName: fullName || username };
+                users.push(newUser);
+                saveUsers(users);
+
+                currentUser = newUser;
+                try { localStorage.setItem(KEY_CURRENT_USER, JSON.stringify(newUser)); } catch(e){}
+
+                showToast(`¡Cuenta registrada exitosamente, ${newUser.fullName}!`, 'success');
+                closeAuthModal();
+                updateUserUI();
+
+            } else {
+                const user = users.find(u => u.username === username && u.password === pass);
+                if (!user) {
+                    showToast('Usuario o contraseña incorrectos', 'error');
+                    return;
+                }
+
+                currentUser = user;
+                try { localStorage.setItem(KEY_CURRENT_USER, JSON.stringify(user)); } catch(e){}
+
+                showToast(`¡Sesión iniciada! Bienvenido ${user.fullName}`, 'success');
+                closeAuthModal();
+                updateUserUI();
+            }
+        }
+
+        function logoutUser() {
+            currentUser = null;
+            try { localStorage.removeItem(KEY_CURRENT_USER); } catch(e){}
+            showToast('Has cerrado sesión', 'info');
+            updateUserUI();
+        }
+
+        // UTILITY FUNCTIONS
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            
+            let bgClass = 'bg-slate-900 border-slate-700 text-white';
+            if (type === 'error') bgClass = 'bg-brandRed-600 border-brandRed-800 text-white';
+            if (type === 'success') bgClass = 'bg-emerald-600 border-emerald-800 text-white';
+
+            toast.className = `pointer-events-auto border-2 ${bgClass} px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-black uppercase tracking-wider transition-all duration-300`;
+            
+            toast.innerHTML = `
+                <i class="fa-solid ${type === 'error' ? 'fa-triangle-exclamation' : 'fa-circle-check'} text-sm"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
